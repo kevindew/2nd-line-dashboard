@@ -1,0 +1,165 @@
+@import "govuk-frontend-toolkit.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  min-height: 50vw;
+  margin: 0;
+  padding: 0;
+  @include core-19;
+}
+
+.dashboard {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard__header {
+  background-color: $black;
+  color: $white;
+}
+
+.dashboard__header__container {
+  margin: $gutter-half $gutter;
+  @include core-24;
+}
+
+.dashboard__main {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.dashboard__footer {
+  background-color: $govuk-blue;
+  height: $gutter-half;
+}
+
+.metrics{
+  width: 100%;
+  padding: 0 $gutter;
+  @extend %grid-row;
+}
+
+.metrics__column {
+  @include grid-column(1/2);
+}
+
+.IcingaAlerts {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+}
+
+.IcingaAlerts {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+}
+
+.IcingaAlerts__item {
+  flex: 1 0 50%;
+  padding: 10px;
+}
+
+.IcingaAlert {
+  padding: 10px;
+}
+
+.IcingaAlert__header {
+  text-align: center;
+  margin: 0 0 10px;
+}
+
+.IcingaAlert__counts {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.IcingaAlert__count {
+  flex: 1 0 33%;
+  text-align: center;
+  strong {
+    display: block;
+    font-size: 200%;
+  }
+}
+
+.IcingaAlert--critical {
+  border: 10px solid $red;
+}
+
+.IcingaAlert--warning {
+  border: 10px solid $orange;
+}
+
+.IcingaAlert--clear {
+  border: 10px solid $green;
+}
+
+.IcingaAlert--unknown {
+  border: 10px solid $grey-2;
+}
+
+.Statistics__header {
+  margin: 10px 0;
+}
+
+.Statistics__all {
+  margin: 0 0 20px;
+  padding: 0;
+  list-style-type: none;
+  @include core-19;
+}
+
+.Statistics__all_item {
+  margin: 3px 0;
+  padding: 0;
+}
+
+.Statistics__sub-list {
+  list-style-type: disc;
+}
+
+.Statistics__sub-list__item {
+  margin: 3px 0;
+}
+
+
+//
+// ol, ul, li {
+//   list-style-type: none;
+// }
+//
+// .Dashboard-header {
+//   background-color: $black;
+//   color: $white;
+//   border-bottom: 10px solid $white;
+//   padding: 0 $gutter;
+// }
+//
+// .Dashboard-header-container {
+//   padding: 18px 0 12px;
+//   @include core-48;
+// }
+//
+// .Dashboard-content-container {
+//   padding: 0 $gutter;
+//   @extend %grid-row;
+// }
+//
+// .Dashboard-content-column {
+//   @include grid-column(1/2);
+// }
+//
