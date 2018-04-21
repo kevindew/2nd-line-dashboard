@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Metrics from './Metrics';
 import './Dashboard.css';
 
@@ -20,4 +21,4 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+export default connect()(Dashboard);
