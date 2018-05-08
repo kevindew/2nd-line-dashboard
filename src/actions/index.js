@@ -29,17 +29,34 @@ function checkIcinga(environment) {
   }
 }
 
+function countIssues(data) {
+  const activeServices = data.status.service_status.filter(status => {
+    return !status.has_been_acknowledged && !status.in_scheduled_downtime;
+  });
+
+  return {
+    critical: activeServices.filter(s => s.status === "CRITICAL").length,
+    warning: activeServices.filter(s => s.status === "WARNING").length,
+    unknown: activeServices.filter(s => s.status === "UNKNOWN").length,
+  }
+}
+
 export const ICINGA_DATA_SUCCESS = 'ICINGA_DATA_SUCCESS';
 function icingaDataSuccess(environment, data) {
   return {
-    type: ICINGA_DATA_SUCCESS
+    type: ICINGA_DATA_SUCCESS,
+    environment: environment,
+    time: Date.now(),
+    ...countIssues(data)
   };
 }
 
 export const ICINGA_DATA_FAILURE = 'ICINGA_DATA_FAILURE';
 function icingaDataFailure(environment) {
   return {
-    type: ICINGA_DATA_FAILURE
+    type: ICINGA_DATA_FAILURE,
+    environment: environment,
+    time: Date.now()
   };
 }
 
