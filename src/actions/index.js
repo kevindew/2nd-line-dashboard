@@ -1,22 +1,23 @@
 import axios from 'axios';
 
-function icignaUrl(environment) {
-  const buildUrl = hostname => {
-    return `https://${hostname}/cgi-bin/icinga/status.cgi?servicestatustypes=28&jsonoutput=1`;
-  }
-
+export function icingaHostname(environment) {
   switch (environment) {
     case "ci":
-      return buildUrl("ci-alert.integration.publishing.service.gov.uk");
+      return "ci-alert.integration.publishing.service.gov.uk";
     case "integration":
-      return buildUrl("alert.integration.publishing.service.gov.uk");
+      return "alert.integration.publishing.service.gov.uk";
     case "production":
-      return buildUrl("alert.publishing.service.gov.uk");
+      return "alert.publishing.service.gov.uk";
     case "staging":
-      return buildUrl("alert.staging.publishing.service.gov.uk");
+      return "alert.staging.publishing.service.gov.uk";
     default:
       throw new Error(`Unknown Icinga environment: ${environment}`);
   }
+}
+
+function icignaUrl(environment) {
+  const hostname = icingaHostname(environment);
+  return `https://${hostname}/cgi-bin/icinga/status.cgi?servicestatustypes=28&jsonoutput=1`;
 }
 
 function checkIcinga(environment) {

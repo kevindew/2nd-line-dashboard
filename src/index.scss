@@ -57,7 +57,6 @@ html, body, #root {
   list-style-type: none;
   margin: 0;
   padding: 0;
-
 }
 
 .IcingaAlerts {
@@ -72,7 +71,11 @@ html, body, #root {
 }
 
 .IcingaAlert {
+  border: 10px solid $grey-2;
+  color: $black;
+  display: block;
   padding: 10px;
+  text-decoration: none;
 }
 
 .IcingaAlert__header {
@@ -97,19 +100,19 @@ html, body, #root {
 }
 
 .IcingaAlert--critical {
-  border: 10px solid $red;
+  border-color: $red;
 }
 
 .IcingaAlert--warning {
-  border: 10px solid $orange;
+  border-color: $orange;
 }
 
 .IcingaAlert--clear {
-  border: 10px solid $green;
+  border-color: $green;
 }
 
 .IcingaAlert--unknown {
-  border: 10px solid $grey-2;
+  border-color: $fuschia;
 }
 
 .Statistics__header {

@@ -18,6 +18,7 @@ function icinga(state = initialIcingaState, action) {
     case ICINGA_DATA_SUCCESS:
       envState[action.environment] = {
         lastCheck: action.time,
+        checkReturned: true,
         critical: action.critical,
         warning: action.warning,
         unknown: action.unknown
@@ -26,7 +27,8 @@ function icinga(state = initialIcingaState, action) {
 
     case ICINGA_DATA_FAILURE:
       envState[action.environment] = {
-        lastCheck: action.time
+        lastCheck: action.time,
+        checkReturned: false
       }
       return { ...state, ...envState };
 

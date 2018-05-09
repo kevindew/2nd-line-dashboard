@@ -1,20 +1,56 @@
 import React from 'react';
+import { icingaHostname } from './actions';
 
-function IcingaAlert(props) {
-  return <div className={`IcingaAlert IcingaAlert--${props.status}`}>
-    <h3 className="IcingaAlert__header">{props.environment}</h3>
-    <ul className="IcingaAlert__counts">
+export default class IcingaAlert extends React.Component {
+  statusClass() {
+    const data = this.props.data;
+
+    if (!data.checkReturned) {
+      return 'no-connection';
+    }
+
+    if (data.critical) {
+      return 'critical';
+    }
+
+    if (data.unknown) {
+      return 'unknown';
+    }
+
+    if (data.warning) {
+      return 'warning';
+    }
+
+    return 'clear';
+  }
+
+  countNode(count, singular, plural) {
+    const text = count === 1 ? singular : plural;
+    const toShow = count === undefined ? '?' : count;
+    return (
       <li className="IcingaAlert__count">
-        <strong>3</strong> criticals
+        <strong>{toShow}</strong> {text}
       </li>
-      <li className="IcingaAlert__count">
-        <strong>10</strong> warnings
-      </li>
-      <li className="IcingaAlert__count">
-        <strong>5</strong> unknown
-      </li>
-    </ul>
-  </div>;
+    );
+  }
+
+  environmentUrl() {
+    const hostname = icingaHostname(this.props.environment.toLowerCase());
+    return `https://${hostname}`;
+  }
+
+  render() {
+    return (
+      <a
+        href={this.environmentUrl()}
+        className={`IcingaAlert IcingaAlert--${this.statusClass()}`}>
+        <h3 className="IcingaAlert__header">{this.props.environment}</h3>
+        <ul className="IcingaAlert__counts">
+          {this.countNode(this.props.data.critical, 'critical', 'criticals')}
+          {this.countNode(this.props.data.warning, 'warning', 'warnings')}
+          {this.countNode(this.props.data.unknown, 'unknown', 'unknown')}
+        </ul>
+      </a>
+    );
+  }
 }
-
-export default IcingaAlert;

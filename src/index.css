@@ -87,7 +87,11 @@ html, body, #root {
   padding: 10px; }
 
 .IcingaAlert {
-  padding: 10px; }
+  border: 10px solid #bfc1c3;
+  color: #0b0c0c;
+  display: block;
+  padding: 10px;
+  text-decoration: none; }
 
 .IcingaAlert__header {
   text-align: center;
@@ -107,16 +111,16 @@ html, body, #root {
     font-size: 200%; }
 
 .IcingaAlert--critical {
-  border: 10px solid #b10e1e; }
+  border-color: #b10e1e; }
 
 .IcingaAlert--warning {
-  border: 10px solid #f47738; }
+  border-color: #f47738; }
 
 .IcingaAlert--clear {
-  border: 10px solid #006435; }
+  border-color: #006435; }
 
 .IcingaAlert--unknown {
-  border: 10px solid #bfc1c3; }
+  border-color: #912b88; }
 
 .Statistics__header {
   margin: 10px 0; }

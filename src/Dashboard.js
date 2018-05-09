@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Metrics from './Metrics';
 import './Dashboard.css';
 
-const Dashboard = (icinga) => {
+function Dashboard({ icinga }) {
   return (
     <div className="dashboard">
       <header role="banner" className="dashboard__header">
