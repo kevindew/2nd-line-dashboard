@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Metrics from './Metrics';
 import './Dashboard.css';
 
-function Dashboard({ icinga }) {
+function Dashboard({ icinga, graphite }) {
   return (
     <div className="dashboard">
       <header role="banner" className="dashboard__header">
@@ -12,17 +12,15 @@ function Dashboard({ icinga }) {
         </div>
       </header>
       <main className="dashboard__main">
-        <Metrics icinga={icinga} />
+        <Metrics icinga={icinga} graphite={graphite} />
       </main>
       <footer className="dashboard__footer"></footer>
     </div>
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    icinga: state.icinga
-  }
+const mapStateToProps = ({ icinga, graphite }) => {
+  return { icinga, graphite };
 }
 
 export default connect(mapStateToProps)(Dashboard);

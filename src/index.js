@@ -5,7 +5,8 @@ import { createLogger } from 'redux-logger'
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './reducers';
-import { requestData } from './actions';
+import { requestIcingaData } from './actions/icinga';
+import { requestGraphiteData } from './actions/graphite';
 import './index.css';
 import Dashboard from './Dashboard';
 import registerServiceWorker from './registerServiceWorker';
@@ -17,10 +18,11 @@ const store = createStore(
   applyMiddleware(thunkMiddleware, loggerMiddleware)
 );
 
-const dispatchDataRequest = () => store.dispatch(requestData());
+setInterval(() => store.dispatch(requestIcingaData()), 20000)
+setInterval(() => store.dispatch(requestGraphiteData()), 60000)
 
-setInterval(dispatchDataRequest, 20000)
-dispatchDataRequest();
+store.dispatch(requestIcingaData());
+store.dispatch(requestGraphiteData());
 
 ReactDOM.render(
   <Provider store={store}>

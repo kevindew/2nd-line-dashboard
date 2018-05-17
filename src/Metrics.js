@@ -3,7 +3,7 @@ import IcingaAlerts from './IcingaAlerts';
 import Statistics from './Statistics';
 import Status from './Status';
 
-export default function Metrics({ icinga }) {
+export default function Metrics({ icinga, graphite }) {
   return (
     <div className="metrics">
       <div className="metrics__column">
@@ -14,7 +14,7 @@ export default function Metrics({ icinga }) {
           staging={icinga.staging} />
       </div>
       <div className="metrics__column">
-        <Statistics />
+        <Statistics graphite={graphite} />
         <Status />
       </div>
     </div>

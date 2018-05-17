@@ -61,7 +61,7 @@ function icingaDataFailure(environment) {
   };
 }
 
-export function requestData() {
+export function requestIcingaData() {
   return dispatch => {
     dispatch(checkIcinga("production"));
     dispatch(checkIcinga("staging"));
