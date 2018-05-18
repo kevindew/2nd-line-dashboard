@@ -5,6 +5,7 @@
   "homepage": "https://kevindew.github.io/2nd-line-dashboard/",
   "dependencies": {
     "axios": "^0.18.0",
+    "gh-pages": "^1.1.0",
     "govuk_frontend_toolkit": "^7.4.2",
     "node-sass-chokidar": "^1.2.2",
     "npm-run-all": "^4.1.2",
@@ -24,6 +25,8 @@
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
