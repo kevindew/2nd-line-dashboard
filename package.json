@@ -2,6 +2,7 @@
   "name": "2nd-line-dashboard",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://kevindew.github.io/2nd-line-dashboard/",
   "dependencies": {
     "axios": "^0.18.0",
     "govuk_frontend_toolkit": "^7.4.2",
