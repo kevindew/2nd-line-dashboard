@@ -1,4 +1,5 @@
 import React from 'react';
+import './Statistics.css';
 
 export default class Statistics extends React.Component {
   renderLast5mins(last5mins) {

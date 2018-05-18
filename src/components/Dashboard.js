@@ -5,16 +5,16 @@ import './Dashboard.css';
 
 function Dashboard({ icinga, graphite }) {
   return (
-    <div className="dashboard">
-      <header role="banner" className="dashboard__header">
-        <div className="dashboard__header__container">
+    <div className="Dashboard">
+      <header role="banner" className="Dashboard__header">
+        <div className="Dashboard__header__container">
           GOV.UK 2nd Line
         </div>
       </header>
-      <main className="dashboard__main">
+      <main className="Dashboard__main">
         <Metrics icinga={icinga} graphite={graphite} />
       </main>
-      <footer className="dashboard__footer"></footer>
+      <footer className="Dashboard__footer"></footer>
     </div>
   );
 }

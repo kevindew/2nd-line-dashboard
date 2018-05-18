@@ -1,5 +1,6 @@
 import React from 'react';
-import { icingaHostname } from './actions/icinga';
+import { icingaHostname } from '../actions/icinga';
+import './IcingaAlert.css';
 
 export default class IcingaAlert extends React.Component {
   statusClass() {

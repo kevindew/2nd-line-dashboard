@@ -7,9 +7,10 @@ import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './reducers';
 import { requestIcingaData } from './actions/icinga';
 import { requestGraphiteData } from './actions/graphite';
-import './index.css';
-import Dashboard from './Dashboard';
+import Dashboard from './components/Dashboard';
 import registerServiceWorker from './registerServiceWorker';
+
+import './index.css';
 
 const loggerMiddleware = createLogger();
 

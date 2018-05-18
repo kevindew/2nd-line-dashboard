@@ -1,0 +1,11 @@
+@import "assets/govuk-frontend-toolkit.scss";
+
+.Metrics{
+  width: 100%;
+  padding: 0 $gutter;
+  @extend %grid-row;
+}
+
+.Metrics__column {
+  @include grid-column(1/2);
+}

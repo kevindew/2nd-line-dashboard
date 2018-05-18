@@ -1,0 +1,46 @@
+@import "assets/govuk-frontend-toolkit.scss";
+
+.IcingaAlert {
+  border: 10px solid $grey-2;
+  color: $black;
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.IcingaAlert__header {
+  text-align: center;
+  margin: 0 0 10px;
+}
+
+.IcingaAlert__counts {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.IcingaAlert__count {
+  flex: 1 0 33%;
+  text-align: center;
+  strong {
+    display: block;
+    font-size: 200%;
+  }
+}
+
+.IcingaAlert--critical {
+  border-color: $red;
+}
+
+.IcingaAlert--warning {
+  border-color: $orange;
+}
+
+.IcingaAlert--clear {
+  border-color: $green;
+}
+
+.IcingaAlert--unknown {
+  border-color: $fuschia;
+}

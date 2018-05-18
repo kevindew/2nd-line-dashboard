@@ -1,0 +1,25 @@
+@import "assets/govuk-frontend-toolkit.scss";
+
+.Statistics__header {
+  margin: 10px 0;
+}
+
+.Statistics__all {
+  margin: 0 0 20px;
+  padding: 0;
+  list-style-type: none;
+  @include core-19;
+}
+
+.Statistics__all_item {
+  margin: 3px 0;
+  padding: 0;
+}
+
+.Statistics__sub-list {
+  list-style-type: disc;
+}
+
+.Statistics__sub-list__item {
+  margin: 3px 0;
+}

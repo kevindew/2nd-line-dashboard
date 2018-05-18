@@ -1,5 +1,6 @@
 import React from 'react';
 import IcingaAlert from './IcingaAlert';
+import './IcingaAlerts.css';
 
 export default function IcingaAlerts({ ci, integration, production, staging }) {
   return (

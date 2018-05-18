@@ -1,0 +1,31 @@
+@import "assets/govuk-frontend-toolkit.scss";
+
+.Dashboard {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.Dashboard__header {
+  background-color: $black;
+  color: $white;
+}
+
+.Dashboard__header__container {
+  margin: $gutter-half $gutter;
+  @include core-24;
+}
+
+.Dashboard__main {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.Dashboard__footer {
+  background-color: $govuk-blue;
+  height: $gutter-half;
+}
