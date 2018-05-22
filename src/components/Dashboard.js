@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Metrics from './Metrics';
 import './Dashboard.css';
 
-function Dashboard({ icinga, graphite }) {
+export function Dashboard({ icinga, graphite }) {
   return (
     <div className="Dashboard">
       <header role="banner" className="Dashboard__header">

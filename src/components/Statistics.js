@@ -67,13 +67,14 @@ export default class Statistics extends React.Component {
   }
 
   renderLast30minsStats(last30mins) {
+    const errors = Math.round(last30mins.sentryErrorsLastHour);
     return (
       <div>
         <h2>In the last hour:</h2>
         <ul>
           <li>
             Sentry has
-            received <strong>{last30mins.sentryErrorsLastHour}</strong> errors
+            received <strong>{errors}</strong> errors
           </li>
         </ul>
       </div>
