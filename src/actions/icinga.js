@@ -39,7 +39,7 @@ function countIssues(data) {
     critical: activeServices.filter(s => s.status === 'CRITICAL').length,
     warning: activeServices.filter(s => s.status === 'WARNING').length,
     unknown: activeServices.filter(s => s.status === 'UNKNOWN').length,
-  }
+  };
 }
 
 export const ICINGA_DATA_SUCCESS = 'ICINGA_DATA_SUCCESS';
@@ -47,7 +47,7 @@ function icingaDataSuccess(environment, data) {
   return {
     type: ICINGA_DATA_SUCCESS,
     environment: environment,
-    time: Date.now(),
+    time: new Date().toISOString(),
     ...countIssues(data)
   };
 }
@@ -57,7 +57,7 @@ function icingaDataFailure(environment) {
   return {
     type: ICINGA_DATA_FAILURE,
     environment: environment,
-    time: Date.now()
+    time: new Date().toISOString()
   };
 }
 
