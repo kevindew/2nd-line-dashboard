@@ -1,7 +1,6 @@
 import axios from 'axios';
-import { URL } from 'whatwg-url';
 
-const GRAPHITE_URL = new URL('https://graphite.publishing.service.gov.uk/render/?format=json');
+const GRAPHITE_URL = 'https://graphite.publishing.service.gov.uk/render/?format=json';
 
 const CDN_MONITORING_KEY = 'monitoring-*_management.cdn_fastly-{assets,govuk,redirector}';
 
@@ -64,34 +63,33 @@ function sentryErrorsTarget() {
   return 'sumSeries(keepLastValue(stats.gauges.sentry-error-count-last-hour.*))';
 }
 
+function appendSearchParams(url, params) {
+  const toAppend = params
+    .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+    .join("&");
+
+  return `${url}&${toAppend}`;
+}
+
 function graphite5minsUrl() {
-  const url = new URL(GRAPHITE_URL);
-  const searchParams = url.searchParams;
-
-  // note the order of these is important to working out the returned data
-  // see graphite5minData function
-  searchParams.append('target', cdnRequestsTarget());
-  searchParams.append('target', cdn4xxResponsesTarget());
-  searchParams.append('target', cdn5xxResponsesTarget());
-  searchParams.append('target', originRequestsTarget());
-  searchParams.append('target', origin429ResponsesTarget());
-  searchParams.append('target', originOther4xxResponsesTarget());
-  searchParams.append('target', origin5xxResponsesTarget());
-  searchParams.append('target', sentryErrorsTarget());
-
-  searchParams.append('from', '-5mins');
-
-  return url
+  return appendSearchParams(GRAPHITE_URL, [
+    ['target', cdnRequestsTarget()],
+    ['target', cdn4xxResponsesTarget()],
+    ['target', cdn5xxResponsesTarget()],
+    ['target', originRequestsTarget()],
+    ['target', origin429ResponsesTarget()],
+    ['target', originOther4xxResponsesTarget()],
+    ['target', origin5xxResponsesTarget()],
+    ['target', sentryErrorsTarget()],
+    ['from', '-5mins']
+  ]);
 }
 
 function graphite30minsUrl() {
-  const url = new URL(GRAPHITE_URL);
-  const searchParams = url.searchParams;
-
-  searchParams.append('target', sentryErrorsTarget());
-  searchParams.append('from', '-30mins');
-
-  return url
+  return appendSearchParams(GRAPHITE_URL, [
+    ['target', sentryErrorsTarget()],
+    ['from', '-30mins']
+  ]);
 }
 
 function checkGraphite5mins() {

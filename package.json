@@ -19,8 +19,7 @@
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-mock-store": "^1.5.1",
-    "redux-thunk": "^2.2.0",
-    "whatwg-url": "^6.4.1"
+    "redux-thunk": "^2.2.0"
   },
   "scripts": {
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
