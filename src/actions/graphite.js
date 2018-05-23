@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { URL } from 'whatwg-url';
 
 const GRAPHITE_URL = new URL('https://graphite.publishing.service.gov.uk/render/?format=json');
 
@@ -161,7 +162,9 @@ function graphite30minsFailure(environment) {
 
 export function requestGraphiteData() {
   return dispatch => {
-    dispatch(checkGraphite5mins());
-    dispatch(checkGraphite30mins());
+    return Promise.all([
+      dispatch(checkGraphite5mins()),
+      dispatch(checkGraphite30mins())
+    ]);
   }
 }
