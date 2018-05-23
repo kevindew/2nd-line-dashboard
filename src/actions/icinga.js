@@ -2,14 +2,14 @@ import axios from 'axios';
 
 export function icingaHostname(environment) {
   switch (environment) {
-    case "ci":
-      return "ci-alert.integration.publishing.service.gov.uk";
-    case "integration":
-      return "alert.integration.publishing.service.gov.uk";
-    case "production":
-      return "alert.publishing.service.gov.uk";
-    case "staging":
-      return "alert.staging.publishing.service.gov.uk";
+    case 'ci':
+      return 'ci-alert.integration.publishing.service.gov.uk';
+    case 'integration':
+      return 'alert.integration.publishing.service.gov.uk';
+    case 'production':
+      return 'alert.publishing.service.gov.uk';
+    case 'staging':
+      return 'alert.staging.publishing.service.gov.uk';
     default:
       throw new Error(`Unknown Icinga environment: ${environment}`);
   }
@@ -36,9 +36,9 @@ function countIssues(data) {
   });
 
   return {
-    critical: activeServices.filter(s => s.status === "CRITICAL").length,
-    warning: activeServices.filter(s => s.status === "WARNING").length,
-    unknown: activeServices.filter(s => s.status === "UNKNOWN").length,
+    critical: activeServices.filter(s => s.status === 'CRITICAL').length,
+    warning: activeServices.filter(s => s.status === 'WARNING').length,
+    unknown: activeServices.filter(s => s.status === 'UNKNOWN').length,
   }
 }
 
@@ -63,9 +63,11 @@ function icingaDataFailure(environment) {
 
 export function requestIcingaData() {
   return dispatch => {
-    dispatch(checkIcinga("production"));
-    dispatch(checkIcinga("staging"));
-    dispatch(checkIcinga("integration"));
-    dispatch(checkIcinga("ci"));
+    return Promise.all([
+      dispatch(checkIcinga('production')),
+      dispatch(checkIcinga('staging')),
+      dispatch(checkIcinga('integration')),
+      dispatch(checkIcinga('ci'))
+    ]);
   }
 }
