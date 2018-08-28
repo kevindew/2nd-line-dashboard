@@ -2,7 +2,7 @@
 
 .IcingaAlert {
   border: 10px solid $grey-2;
-  color: $black;
+  color: $white;
   display: block;
   padding: 10px;
   text-decoration: none;
@@ -30,17 +30,17 @@
 }
 
 .IcingaAlert--critical {
-  border-color: $red;
+  background: $red;
 }
 
 .IcingaAlert--warning {
-  border-color: $orange;
+  background: $orange;
 }
 
 .IcingaAlert--clear {
-  border-color: $green;
+  background: $green;
 }
 
 .IcingaAlert--unknown {
-  border-color: $fuschia;
+  background: $fuschia;
 }
