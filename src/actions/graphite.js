@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const GRAPHITE_URL = 'https://https://graphite.blue.production.govuk.digital/render/?format=json';
+const GRAPHITE_URL = 'https://graphite.blue.production.govuk.digital/render/?format=json';
 
 const CDN_MONITORING_KEY = 'monitoring-*_management.cdn_fastly-{assets,govuk,redirector}';
 
